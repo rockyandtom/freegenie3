@@ -23,11 +23,8 @@ export async function generateMetadata({
   if (!locales.includes(params.locale as any)) notFound();
 
   setRequestLocale(params.locale);
-  const messages = {
-    ...(await import(`@/i18n/messages/${params.locale}.json`)).default,
-    ...(await import(`@/i18n/pages/landing/${params.locale}.json`)).default
-  };
-  const t = await getTranslations({ messages });
+  const messages = await getMessages();
+  const t = await getTranslations();
 
   return {
     title: {
@@ -50,10 +47,7 @@ export default async function LocaleLayout({
   if (!locales.includes(locale as any)) notFound();
 
   setRequestLocale(locale);
-  const messages = {
-    ...(await import(`@/i18n/messages/${locale}.json`)).default,
-    ...(await import(`@/i18n/pages/landing/${locale}.json`)).default
-  };
+  const messages = await getMessages();
 
   return (
     <html lang={locale} className={inter.className} suppressHydrationWarning>

@@ -2,9 +2,10 @@ import {notFound} from 'next/navigation';
 import {getRequestConfig} from 'next-intl/server';
 import {locales} from './i18n/locale';
 
-export default getRequestConfig(async ({locale}) => {
+export default getRequestConfig(async ({requestLocale}) => {
   // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale as any)) notFound();
+  let locale = await requestLocale;
+  if (!locale || !locales.includes(locale as any)) notFound();
 
   // Load messages for the current locale
   const messages = {
@@ -13,6 +14,7 @@ export default getRequestConfig(async ({locale}) => {
   };
 
   return {
+    locale,
     messages,
     timeZone: 'Asia/Shanghai'
   };
