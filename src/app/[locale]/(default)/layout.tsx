@@ -2,7 +2,7 @@ import Footer from "@/components/blocks/footer";
 import Header from "@/components/blocks/header";
 import { ReactNode } from "react";
 import { getLandingPage } from "@/services/page";
-import Feedback from "@/components/feedback";
+import { setRequestLocale } from "next-intl/server";
 
 export default async function DefaultLayout({
   children,
@@ -12,6 +12,8 @@ export default async function DefaultLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
+  
   const page = await getLandingPage(locale);
 
   return (
@@ -19,7 +21,6 @@ export default async function DefaultLayout({
       {page.header && <Header header={page.header} />}
       <main className="overflow-x-hidden">{children}</main>
       {page.footer && <Footer footer={page.footer} />}
-      {/* <Feedback socialLinks={page.footer?.social?.items} /> */}
     </>
   );
 }

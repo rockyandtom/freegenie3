@@ -1,6 +1,6 @@
-# ShipAny Template One
+# Genie 3 Imagetovideo AI
 
-Ship Any AI SaaS Startups in hours.
+Transform your images into stunning videos with AI-powered technology. Create cinematic videos from static images in seconds.
 
 ![preview](preview.png)
 

@@ -22,10 +22,10 @@ export default async function AdminLayout({
 
   const sidebar: Sidebar = {
     brand: {
-      title: "ShipAny",
+      title: "Genie 3",
       logo: {
         src: "/logo.png",
-        alt: "ShipAny",
+        alt: "Genie 3 AI",
       },
       url: "/admin",
     },
@@ -67,19 +67,19 @@ export default async function AdminLayout({
       items: [
         {
           title: "Documents",
-          url: "https://docs.shipany.ai",
+          url: "https://freegenie3.com/docs",
           target: "_blank",
           icon: "RiFileTextLine",
         },
         {
           title: "Blocks",
-          url: "https://shipany.ai/blocks",
+          url: "https://freegenie3.com/features",
           target: "_blank",
           icon: "RiDashboardLine",
         },
         {
           title: "Showcases",
-          url: "https://shipany.ai/showcase",
+          url: "https://freegenie3.com",
           target: "_blank",
           icon: "RiAppsLine",
         },
@@ -95,7 +95,7 @@ export default async function AdminLayout({
         },
         {
           title: "Github",
-          url: "https://github.com/shipanyai/shipany-template-one",
+          url: "https://github.com/freegenie3",
           target: "_blank",
           icon: "RiGithubLine",
         },
@@ -107,7 +107,7 @@ export default async function AdminLayout({
         },
         {
           title: "X",
-          url: "https://x.com/shipanyai",
+          url: "https://x.com/freegenie3",
           target: "_blank",
           icon: "RiTwitterLine",
         },

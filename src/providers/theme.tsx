@@ -24,6 +24,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       defaultTheme={process.env.NEXT_PUBLIC_DEFAULT_THEME || "system"}
       enableSystem
       disableTransitionOnChange
+      suppressHydrationWarning
     >
       {children}
 

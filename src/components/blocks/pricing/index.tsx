@@ -90,7 +90,7 @@ export default function Pricing({ pricing }: { pricing: PricingType }) {
   }, [pricing.items]);
 
   return (
-    <section id={pricing.name} className="py-16">
+    <section id={pricing.name} className="py-20">
       <div className="container">
         <div className="mx-auto mb-12 text-center">
           <h2 className="mb-4 text-4xl font-semibold lg:text-5xl">

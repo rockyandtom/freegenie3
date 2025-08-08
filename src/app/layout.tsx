@@ -1,42 +1,24 @@
-import "@/app/globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
 
-import { getLocale, setRequestLocale } from "next-intl/server";
-import { locales } from "@/i18n/locale";
-import { cn } from "@/lib/utils";
+const inter = Inter({ subsets: ["latin"] });
 
-export default async function RootLayout({
+export const metadata: Metadata = {
+  title: "Genie 3 - AI Image to Video Generator",
+  description: "Transform your static images into dynamic videos with Genie 3's powerful AI technology.",
+};
+
+export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
-  const locale = await getLocale();
-  setRequestLocale(locale);
-
-  const webUrl = process.env.NEXT_PUBLIC_WEB_URL || "";
-  const googleAdsenseCode = process.env.NEXT_PUBLIC_GOOGLE_ADCODE || "";
-
+}) {
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {googleAdsenseCode && (
-          <meta name="google-adsense-account" content={googleAdsenseCode} />
-        )}
-
-        <link rel="icon" href="/favicon.ico" />
-
-        {locales &&
-          locales.map((loc) => (
-            <link
-              key={loc}
-              rel="alternate"
-              hrefLang={loc}
-              href={`${webUrl}${loc === "en" ? "" : `/${loc}`}/`}
-            />
-          ))}
-        <link rel="alternate" hrefLang="x-default" href={webUrl} />
-      </head>
-      <body>{children}</body>
+    <html suppressHydrationWarning>
+      <body className={inter.className} suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   );
 }

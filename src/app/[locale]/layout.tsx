@@ -8,46 +8,64 @@ import { Metadata } from "next";
 import { NextAuthSessionProvider } from "@/auth/session";
 import { NextIntlClientProvider } from "next-intl";
 import { ThemeProvider } from "@/providers/theme";
+import { Inter } from "next/font/google";
+import { notFound } from "next/navigation";
+import { locales } from "@/i18n/locale";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: { locale: string };
 }): Promise<Metadata> {
-  const { locale } = await params;
-  setRequestLocale(locale);
+  // Validate that the incoming `locale` parameter is valid
+  if (!locales.includes(params.locale as any)) notFound();
 
-  const t = await getTranslations();
+  setRequestLocale(params.locale);
+  const messages = {
+    ...(await import(`@/i18n/messages/${params.locale}.json`)).default,
+    ...(await import(`@/i18n/pages/landing/${params.locale}.json`)).default
+  };
+  const t = await getTranslations({ messages });
 
   return {
     title: {
-      template: `%s`,
-      default: t("metadata.title") || "",
+      template: `%s - Genie 3`,
+      default: t("metadata.title") || "Genie 3 - AI Image to Video Generator",
     },
-    description: t("metadata.description") || "",
-    keywords: t("metadata.keywords") || "",
+    description: t("metadata.description") || "Transform your static images into dynamic videos with Genie 3's powerful AI technology.",
+    keywords: t("metadata.keywords") || "genie 3, image to video, AI video generation, photo animation",
   };
 }
 
 export default async function LocaleLayout({
   children,
-  params,
-}: Readonly<{
+  params: { locale },
+}: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-}>) {
-  const { locale } = await params;
-  setRequestLocale(locale);
+  params: { locale: string };
+}) {
+  // Validate that the incoming `locale` parameter is valid
+  if (!locales.includes(locale as any)) notFound();
 
-  const messages = await getMessages();
+  setRequestLocale(locale);
+  const messages = {
+    ...(await import(`@/i18n/messages/${locale}.json`)).default,
+    ...(await import(`@/i18n/pages/landing/${locale}.json`)).default
+  };
 
   return (
-    <NextIntlClientProvider messages={messages}>
-      <NextAuthSessionProvider>
-        <AppContextProvider>
-          <ThemeProvider>{children}</ThemeProvider>
-        </AppContextProvider>
-      </NextAuthSessionProvider>
-    </NextIntlClientProvider>
+    <html lang={locale} className={inter.className} suppressHydrationWarning>
+      <body className={inter.className} suppressHydrationWarning>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <NextAuthSessionProvider>
+            <AppContextProvider>
+              <ThemeProvider>{children}</ThemeProvider>
+            </AppContextProvider>
+          </NextAuthSessionProvider>
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }

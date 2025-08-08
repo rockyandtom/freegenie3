@@ -29,3 +29,100 @@ button {
 pre {
   @apply px-4;
 }
+
+/* Hide divider line above feature section */
+section:has(#feature) {
+  border-top: none !important;
+}
+
+section#feature {
+  border-top: none !important;
+}
+
+section[id="feature"]:before {
+  display: none !important;
+}
+
+.py-16:has(#feature) {
+  border-top: none !important;
+}
+
+/* Hide the horizontal line in tabs component */
+.absolute.h-px.bg-input {
+  display: none !important;
+}
+
+/* Alternative approach to hide the line */
+div[class*="absolute"][class*="h-px"][class*="bg-input"] {
+  display: none !important;
+}
+
+/* More specific targeting */
+.grid.items-start.gap-6 .absolute.h-px {
+  display: none !important;
+}
+
+/* Hide any horizontal lines between sections */
+section + section::before {
+  display: none !important;
+}
+
+section:not(:first-child)::before {
+  display: none !important;
+}
+
+/* Remove border from all sections */
+section {
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
+/* Hide horizontal lines in general */
+.h-px {
+  display: none !important;
+}
+
+hr {
+  display: none !important;
+}
+
+/* Targeted spacing adjustments for specific oversized areas */
+
+/* Reduce Hero section excessive padding */
+.py-24 {
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
+}
+
+/* Reduce Feature2 section excessive padding */
+.py-32 {
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
+}
+
+/* Keep header area unchanged by being more specific */
+header .py-3,
+[data-header] .py-3 {
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+}
+
+/* Reduce spacing between Stats and FAQ sections */
+section[id*="stats"] {
+  padding-bottom: 1.5rem !important;
+}
+
+section[id*="faq"] {
+  padding-top: 1.5rem !important;
+}
+
+/* Also optimize spacing around other adjacent sections */
+section[id*="feature"] {
+  padding-bottom: 3rem !important;
+}
+
+section[id*="testimonial"] {
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}

@@ -1,15 +1,15 @@
 import { LandingPage, PricingPage, ShowcasePage } from "@/types/pages/landing";
 
 export async function getLandingPage(locale: string): Promise<LandingPage> {
-  return (await getPage("landing", locale)) as LandingPage;
+  return (await getPage("landing", "en")) as LandingPage; // 始终使用英文
 }
 
 export async function getPricingPage(locale: string): Promise<PricingPage> {
-  return (await getPage("pricing", locale)) as PricingPage;
+  return (await getPage("pricing", "en")) as PricingPage; // 始终使用英文
 }
 
 export async function getShowcasePage(locale: string): Promise<ShowcasePage> {
-  return (await getPage("showcase", locale)) as ShowcasePage;
+  return (await getPage("showcase", "en")) as ShowcasePage; // 始终使用英文
 }
 
 export async function getPage(
@@ -17,18 +17,11 @@ export async function getPage(
   locale: string
 ): Promise<LandingPage | PricingPage | ShowcasePage> {
   try {
-    if (locale === "zh-CN") {
-      locale = "zh";
-    }
-
     return await import(
-      `@/i18n/pages/${name}/${locale.toLowerCase()}.json`
+      `@/i18n/pages/${name}/en.json` // 始终使用英文配置
     ).then((module) => module.default);
   } catch (error) {
-    console.warn(`Failed to load ${locale}.json, falling back to en.json`);
-
-    return await import(`@/i18n/pages/${name}/en.json`).then(
-      (module) => module.default
-    );
+    console.error(`Failed to load page config: ${name}`);
+    throw error;
   }
 }

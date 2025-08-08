@@ -6,16 +6,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-  Carousel,
-  CarouselApi,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
 import { useEffect, useState } from "react";
 
 import { Badge } from "@/components/ui/badge";
-import Fade from "embla-carousel-fade";
 import Icon from "@/components/icon";
 import { Section as SectionType } from "@/types/blocks/section";
 
@@ -26,11 +19,9 @@ export default function Feature2({ section }: { section: SectionType }) {
     return null;
   }
 
-  const [api, setApi] = useState<CarouselApi>();
   const [currentAccordion, setCurrentAccordion] = useState("1");
 
   useEffect(() => {
-    api?.scrollTo(+currentAccordion - 1);
     const interval = setInterval(() => {
       setCurrentAccordion((prev) => {
         const next = parseInt(prev) + 1;
@@ -39,12 +30,12 @@ export default function Feature2({ section }: { section: SectionType }) {
     }, DURATION);
 
     return () => clearInterval(interval);
-  }, [api, currentAccordion]);
+  }, [currentAccordion]);
 
   return (
-    <section id={section.name} className="py-32">
+    <section id={section.name} className="py-20">
       <div className="container">
-        <div className="mx-auto grid gap-20 lg:grid-cols-2">
+        <div className="mx-auto grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
           <div>
             {section.label && (
               <Badge variant="outline" className="mb-4">
@@ -62,8 +53,6 @@ export default function Feature2({ section }: { section: SectionType }) {
               value={currentAccordion}
               onValueChange={(value) => {
                 setCurrentAccordion(value);
-                console.log(value);
-                api?.scrollTo(+value - 1);
               }}
             >
               {section.items?.map((item, i) => (
@@ -102,28 +91,23 @@ export default function Feature2({ section }: { section: SectionType }) {
               ))}
             </Accordion>
           </div>
-          <div>
-            <Carousel
-              opts={{
-                duration: 50,
-              }}
-              setApi={setApi}
-              plugins={[Fade()]}
-            >
-              <CarouselContent>
-                {section.items?.map((item, i) => (
-                  <CarouselItem key={i}>
-                    <div>
-                      <img
-                        src={item.image?.src}
-                        alt={item.image?.alt || item.title}
-                        className="max-h-auto w-full object-cover lg:max-h-none rounded-md"
-                      />
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </Carousel>
+          <div className="flex items-start justify-center lg:items-center">
+            {/* Fixed video display for 2.mp4 */}
+            <div className="relative w-full">
+              <div className="aspect-video w-full overflow-hidden rounded-2xl border border-border/20 bg-gradient-to-br from-muted/50 to-muted/20 shadow-2xl backdrop-blur-sm">
+                <video
+                  src="/imgs/features/2.mp4"
+                  className="h-full w-full object-cover transition-all duration-300 hover:scale-105"
+                  controls
+                  playsInline
+                  preload="metadata"
+                />
+              </div>
+              {/* Decorative elements */}
+              <div className="absolute -inset-1 -z-10 rounded-2xl bg-gradient-to-r from-primary/30 via-purple-500/20 to-primary/30 blur-lg opacity-50"></div>
+              <div className="absolute -top-2 -right-2 h-4 w-4 rounded-full bg-primary/60 blur-sm"></div>
+              <div className="absolute -bottom-3 -left-3 h-6 w-6 rounded-full bg-purple-500/40 blur-md"></div>
+            </div>
           </div>
         </div>
       </div>

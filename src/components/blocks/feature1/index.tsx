@@ -9,13 +9,24 @@ export default function Feature1({ section }: { section: SectionType }) {
   return (
     <section id={section.name} className="py-16">
       <div className="container">
-        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
           {section.image && (
-            <img
-              src={section.image?.src}
-              alt="placeholder hero"
-              className="max-h-full w-full rounded-md object-cover"
-            />
+            <div className="max-h-full w-full">
+              {section.image?.src?.endsWith('.mp4') ? (
+                <video
+                  src={section.image.src}
+                  className="max-h-full w-full rounded-md object-cover"
+                  controls
+                  playsInline
+                />
+              ) : (
+                <img
+                  src={section.image?.src}
+                  alt="placeholder hero"
+                  className="max-h-full w-full rounded-md object-cover"
+                />
+              )}
+            </div>
           )}
           <div className="flex flex-col lg:text-left">
             {section.title && (

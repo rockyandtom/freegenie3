@@ -27,7 +27,7 @@ export default function Feature3({ section }: { section: SectionType }) {
         <div>
           <Tabs defaultValue="tab-1">
             <TabsList className="relative grid items-start gap-6 lg:grid-cols-4">
-              <div className="absolute left-4 right-0 top-[30px] -z-10 hidden h-px bg-input lg:block"></div>
+              {/* <div className="absolute left-4 right-0 top-[30px] -z-10 hidden h-px bg-input lg:block"></div> */}
               {section.items?.map((item, index) => {
                 return (
                   <TabsTrigger
@@ -52,11 +52,20 @@ export default function Feature3({ section }: { section: SectionType }) {
                     {item.image && (
                       <div className="mt-6 block border bg-muted/50 px-4 py-6 lg:hidden">
                         <div className="aspect-video">
-                          <img
-                            src={item.image?.src}
-                            alt={item.image?.alt || item.title}
-                            className="h-full w-full rounded-md border object-cover shadow-sm"
-                          />
+                          {item.image?.src?.endsWith('.mp4') ? (
+                            <video
+                              src={item.image.src}
+                              className="h-full w-full rounded-md border object-cover shadow-sm"
+                              controls
+                              playsInline
+                            />
+                          ) : (
+                            <img
+                              src={item.image?.src}
+                              alt={item.image?.alt || item.title}
+                              className="h-full w-full rounded-md border object-cover shadow-sm"
+                            />
+                          )}
                         </div>
                       </div>
                     )}
@@ -75,11 +84,22 @@ export default function Feature3({ section }: { section: SectionType }) {
                     className="aspect-video"
                   >
                     {item.image && (
-                      <img
-                        src={item.image.src}
-                        alt={item.image.alt || item.title}
-                        className="h-full w-full rounded-xl border object-cover shadow-sm"
-                      />
+                      <div className="h-full w-full">
+                        {item.image?.src?.endsWith('.mp4') ? (
+                          <video
+                            src={item.image.src}
+                            className="h-full w-full rounded-xl border object-cover shadow-sm"
+                            controls
+                            playsInline
+                          />
+                        ) : (
+                          <img
+                            src={item.image.src}
+                            alt={item.image.alt || item.title}
+                            className="h-full w-full rounded-xl border object-cover shadow-sm"
+                          />
+                        )}
+                      </div>
                     )}
                   </TabsContent>
                 );

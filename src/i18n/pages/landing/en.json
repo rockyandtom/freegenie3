@@ -1,459 +1,311 @@
 {
-  "template": "shipany-template-one",
+  "template": "genie-3-imagetovideo-ai",
   "theme": "light",
   "header": {
     "brand": {
-      "title": "ShipAny",
+      "title": "freegenie3",
       "logo": {
         "src": "/logo.png",
-        "alt": "ShipAny"
+        "alt": "freegenie3 AI Video Generator"
       },
       "url": "/"
     },
     "nav": {
       "items": [
+        {
+          "title": "Genie 3",
+          "url": "/",
+          "icon": "RiHomeLine"
+        },
+        {
+          "title": "AI Image to Video",
+          "url": "/#hero",
+          "icon": "RiVideoLine"
+        },
         {
           "title": "Features",
           "url": "/#feature",
           "icon": "RiSparkling2Line"
         },
         {
-          "title": "Pricing",
-          "url": "/pricing",
-          "icon": "RiMoneyDollarCircleLine"
+          "title": "How It Works",
+          "url": "/#introduce",
+          "icon": "RiQuestionLine"
         },
         {
-          "title": "Showcase",
-          "url": "/showcase",
-          "icon": "RiApps2Line"
-        },
-        {
-          "title": "Docs",
-          "url": "/docs",
-          "icon": "RiBookOpenLine"
+          "title": "FAQ",
+          "url": "/#faq",
+          "icon": "RiQuestionAnswerLine"
         }
       ]
     },
-    "buttons": [
-      {
-        "title": "Get ShipAny",
-        "url": "https://shipany.ai",
-        "target": "_blank",
-        "variant": "link",
-        "icon": "RiArrowRightUpLine"
-      }
-    ],
+    "buttons": [],
     "show_sign": true,
     "show_theme": true,
-    "show_locale": true
+    "show_locale": false
   },
   "hero": {
-    "title": "Ship Any AI Startups in hours, not days",
-    "highlight_text": "Ship Any",
-    "description": "ShipAny is a NextJS boilerplate for building AI SaaS startups.<br/>Ship Fast with a variety of templates and components.",
-    "announcement": {
-      "label": "2025",
-      "title": "🎉 Happy New Year",
-      "url": "/pricing"
-    },
-    "tip": "🎁 50% off before 2025",
+    "title": "Genie 3 Image to Video Tool | Free AI Image-to-Video Online Generation Platform - FreeGenie3",
+    "highlight_text": "Genie 3",
+    "description": "Powered by Genie 3 core technology, FreeGenie3 offers you free and efficient image-to-video solutions. Upload an image and trigger the Genie 3 AI engine with one click to quickly generate smooth, high-definition videos—whether it's turning a landscape photo into a dynamic short clip, a product image into a promotional video, or a creative illustration into a story segment. The intelligent algorithm driven by Genie 3 accurately captures picture details, restores light and shadow layers, and brings static images to life with dynamic vitality.",
+
     "buttons": [
       {
-        "title": "Get Started",
+        "title": "Start Creating",
         "icon": "RiFlashlightFill",
-        "url": "/pricing",
+        "url": "/Image-to-Video",
         "target": "_self",
         "variant": "default"
-      },
-      {
-        "title": "Read Document",
-        "icon": "RiBookOpenLine",
-        "url": "https://docs.shipany.ai",
-        "target": "_blank",
-        "variant": "outline"
       }
     ],
-    "show_happy_users": true,
+    "show_happy_users": false,
     "show_badge": false
   },
   "branding": {
-    "title": "ShipAny is built on the shoulders of giants",
-    "items": [
-      {
-        "title": "Next.js",
-        "image": {
-          "src": "/imgs/logos/nextjs.svg",
-          "alt": "Next.js"
-        }
-      },
-      {
-        "title": "React",
-        "image": {
-          "src": "/imgs/logos/react.svg",
-          "alt": "React"
-        }
-      },
-      {
-        "title": "TailwindCSS",
-        "image": {
-          "src": "/imgs/logos/tailwindcss.svg",
-          "alt": "TailwindCSS"
-        }
-      },
-      {
-        "title": "Shadcn/UI",
-        "image": {
-          "src": "/imgs/logos/shadcn.svg",
-          "alt": "Shadcn/UI"
-        }
-      },
-      {
-        "title": "Vercel",
-        "image": {
-          "src": "/imgs/logos/vercel.svg",
-          "alt": "Vercel"
-        }
-      }
-    ]
+    "title": "",
+    "items": []
   },
   "introduce": {
     "name": "introduce",
-    "title": "What is ShipAny",
-    "label": "Introduce",
-    "description": "ShipAny is a NextJS boilerplate for building AI SaaS startups. Built in a variety of templates and components.",
+    "title": "What is Genie 3 AI",
+    "label": "About Genie 3",
+    "description": "Genie 3 is the revolutionary AI platform that transforms static images into dynamic, professional-quality videos using advanced machine learning algorithms.",
     "image": {
-      "src": "/imgs/features/1.png"
+      "src": "/imgs/features/1.mp4"
     },
     "items": [
       {
-        "title": "Ready-to-use Templates",
-        "description": "Choose from dozens of production-ready AI SaaS templates to quickly start your project.",
-        "icon": "RiNextjsFill"
+        "title": "AI-Powered Animation",
+        "description": "Genie 3 uses cutting-edge AI to analyze your images and create smooth, natural motion sequences.",
+        "icon": "RiRobot2Line"
       },
       {
-        "title": "Infrastructure Setup",
-        "description": "Get instant access to scalable infrastructure with best practices built-in.",
-        "icon": "RiDatabase2Line"
+        "title": "Cinematic Quality",
+        "description": "Generate professional-grade videos with camera movements, depth effects, and realistic animations.",
+        "icon": "RiClapperboardLine"
       },
       {
-        "title": "Quick Deployment",
-        "description": "Deploy your AI SaaS application to production in hours, not days.",
-        "icon": "RiCloudyFill"
+        "title": "Lightning Fast",
+        "description": "Transform your images into stunning videos in just seconds, not hours of manual editing.",
+        "icon": "RiFlashLine"
       }
     ]
   },
   "benefit": {
     "name": "benefit",
-    "title": "Why Choose ShipAny",
+    "title": "Why Choose Genie 3 for Video Creation",
     "label": "Benefits",
-    "description": "Get everything you need to launch your AI startup - from ready-to-use templates to technical support.",
+    "description": "Discover why Genie 3 is the preferred choice for creators, marketers, and businesses worldwide.",
     "items": [
       {
-        "title": "Complete Framework",
-        "description": "Built on Next.js with authentication, payments, and AI integration - everything works out of the box.",
-        "icon": "RiNextjsFill",
+        "title": "Advanced AI Technology",
+        "description": "Genie 3 leverages state-of-the-art neural networks to create realistic motion and depth in your videos.",
+        "icon": "RiCpuLine",
         "image": {
           "src": "/imgs/features/2.png"
         }
       },
       {
-        "title": "Rich Templates Library",
-        "description": "Choose from various AI SaaS templates to kickstart your project - chatbots, image generation, and more.",
-        "icon": "RiClapperboardAiLine",
+        "title": "Multiple Video Styles",
+        "description": "From parallax effects to full 3D motion, Genie 3 offers various animation styles for every creative need.",
+        "icon": "RiPaletteLine",
         "image": {
           "src": "/imgs/features/3.png"
         }
       },
       {
-        "title": "Technical Guidance",
-        "description": "Get dedicated support and join our developer community to ensure your successful launch.",
-        "icon": "RiCodeFill",
+        "title": "Professional Results",
+        "description": "Create broadcast-quality videos that rival expensive production studios, all powered by Genie 3 AI.",
+        "icon": "RiAwardLine",
         "image": {
-          "src": "/imgs/features/4.png"
+          "src": "/imgs/features/2.mp4"
         }
       }
     ]
   },
   "usage": {
     "name": "usage",
-    "title": "How to Launch with ShipAny",
-    "description": "Get your AI SaaS startup running in three simple steps:",
+    "disabled": true,
+    "title": "",
+    "description": "",
     "image": {
-      "src": "/imgs/features/1.png"
+      "src": "/imgs/features/1.mp4"
     },
     "image_position": "left",
     "text_align": "center",
-    "items": [
-      {
-        "title": "Get ShipAny",
-        "description": "Buy ShipAny with a one-time payment. Check your email for the code and documentation.",
-        "image": {
-          "src": "/imgs/features/5.png"
-        }
-      },
-      {
-        "title": "Start Your Project",
-        "description": "Read the documentation and clone the code of ShipAny. Start building your AI SaaS startup.",
-        "image": {
-          "src": "/imgs/features/6.png"
-        }
-      },
-      {
-        "title": "Customize Your Project",
-        "description": "Modify the template with your data and contents. Specific AI functionality needs.",
-        "image": {
-          "src": "/imgs/features/7.png"
-        }
-      },
-      {
-        "title": "Deploy to Production",
-        "description": "Deploy your project to production with a few steps and start serving customers immediately.",
-        "image": {
-          "src": "/imgs/features/8.png"
-        }
-      }
-    ]
+    "items": []
   },
   "feature": {
     "name": "feature",
-    "title": "Key Features of ShipAny",
-    "description": "Everything you need to launch your AI SaaS startup quickly and efficiently.",
+    "title": "Genie 3 AI Video Generation Features",
+    "description": "Advanced AI capabilities that make Genie 3 the leading image-to-video platform.",
     "items": [
       {
-        "title": "Next.js Boilerplate",
-        "description": "Production-ready Next.js templates with SEO-friendly structure and i18n support.",
-        "icon": "RiNextjsFill"
+        "title": "Smart Depth Detection",
+        "description": "Genie 3's advanced AI instantly maps image depth layers, distinguishing foreground, midground, and background elements to generate lifelike 3D parallax effects—making static photos pop with realistic movement.",
+        "icon": "RiEyeLine"
       },
       {
-        "title": "Authentication & Payments",
-        "description": "Integrated Google OAuth, one-tap login, and Stripe payment processing.",
-        "icon": "RiKey2Fill"
+        "title": "Multiple Animation Styles",
+        "description": "From cinematic zooms for storytelling to smooth pans for product showcases, Genie 3 offers 12+ animation styles including parallax, rotate, and custom motion paths—tailored for social media, marketing, and professional videos.",
+        "icon": "RiMotionLine"
       },
       {
-        "title": "Data Infrastructure",
-        "description": "Built-in Supabase integration for reliable and scalable data storage.",
-        "icon": "RiDatabase2Line"
+        "title": "HD & 4K Export",
+        "description": "Export Genie 3 videos in studio-grade HD 1080p or ultra-sharp 4K 2160p resolution. All outputs are optimized for YouTube, Instagram, TikTok, and broadcast—preserving quality across every platform.",
+        "icon": "RiHdLine"
       },
       {
-        "title": "One-Click Deployment",
-        "description": "Seamless deployment to Vercel or Cloudflare with automated setup.",
-        "icon": "RiCloudy2Fill"
+        "title": "Batch Processing",
+        "description": "Genie 3's AI-powered batch processing lets you animate up to 50 images in one go. Save hours with simultaneous rendering, consistent style application, and bulk export options.",
+        "icon": "RiStackLine"
       },
       {
-        "title": "Business Analytics",
-        "description": "Integrated Google Analytics and Search Console for tracking growth.",
-        "icon": "RiBarChart2Line"
+        "title": "Real-time Preview",
+        "description": "See Genie 3's animations in real time with instant previews. Tweak speed, direction, or effects on the fly—no waiting for full renders to perfect your video.",
+        "icon": "RiPlayLine"
       },
       {
-        "title": "AI-Ready Infrastructure",
-        "description": "Pre-configured AI integration with built-in credits system and API sales.",
-        "icon": "RiRobot2Line"
+        "title": "Cloud-Powered AI",
+        "description": "Genie 3's cloud-based AI infrastructure delivers 3x faster rendering than competitors. Access projects anytime, anywhere—with secure storage and seamless cross-device sync.",
+        "icon": "RiCloudLine"
       }
     ]
   },
   "stats": {
     "name": "stats",
     "label": "Stats",
-    "title": "People Love ShipAny",
-    "description": "for it's easy to use and fast to ship.",
+    "title": "Creators Love Genie 3",
+    "description": "for its professional results and lightning-fast processing.",
     "icon": "FaRegHeart",
     "items": [
       {
-        "title": "Trusted by",
-        "label": "99+",
-        "description": "Customers"
+        "title": "Videos Created",
+        "label": "50K+",
+        "description": "Monthly"
       },
       {
-        "title": "Built in",
-        "label": "20+",
-        "description": "Components"
+        "title": "Animation Styles",
+        "label": "15+",
+        "description": "Available"
       },
       {
-        "title": "Ship Fast in",
-        "label": "5",
-        "description": "Minutes"
+        "title": "Processing Time",
+        "label": "<30",
+        "description": "Seconds"
       }
     ]
   },
   "testimonial": {
     "name": "testimonial",
-    "label": "Testimonial",
-    "title": "What Users Say About ShipAny",
-    "description": "Hear from developers and founders who launched their AI startups with ShipAny.",
+    "label": "",
+    "title": "",
+    "description": "",
     "icon": "GoThumbsup",
-    "items": [
-      {
-        "title": "David Chen",
-        "label": "Founder of AIWallpaper.shop",
-        "description": "ShipAny saved us months of development time. We launched our AI wallpaper business in just 2 days and got our first paying customer within a week!",
-        "image": {
-          "src": "/imgs/users/1.png"
-        }
-      },
-      {
-        "title": "Rachel Kim",
-        "label": "CTO at HeyBeauty.ai",
-        "description": "The pre-built AI infrastructure is a game-changer. We didn't have to worry about architecture - just focused on our AI beauty tech and went live fast.",
-        "image": {
-          "src": "/imgs/users/2.png"
-        }
-      },
-      {
-        "title": "Marcus Thompson",
-        "label": "Solo Developer",
-        "description": "As a solo developer, ShipAny gave me everything I needed - auth, payments, AI integration, and beautiful UI. Launched my SaaS in a weekend!",
-        "image": {
-          "src": "/imgs/users/3.png"
-        }
-      },
-      {
-        "title": "Sofia Garcia",
-        "label": "CEO of Melodisco",
-        "description": "The templates are production-ready and highly customizable. We built our AI music platform in hours instead of months. Incredible time-to-market!",
-        "image": {
-          "src": "/imgs/users/4.png"
-        }
-      },
-      {
-        "title": "James Wilson",
-        "label": "Tech Lead at GPTs.works",
-        "description": "ShipAny's infrastructure is rock-solid. We scaled from 0 to 10k users without touching the backend. Best investment for our AI startup.",
-        "image": {
-          "src": "/imgs/users/5.png"
-        }
-      },
-      {
-        "title": "Anna Zhang",
-        "label": "Startup Founder",
-        "description": "From idea to launch in 3 days! ShipAny's templates and deployment tools made it possible to test our AI business concept incredibly fast.",
-        "image": {
-          "src": "/imgs/users/6.png"
-        }
-      }
-    ]
+    "items": []
   },
   "faq": {
     "name": "faq",
     "label": "FAQ",
-    "title": "Frequently Asked Questions About ShipAny",
-    "description": "Have another question? Contact us on Discord or by email.",
+    "title": "Frequently Asked Questions About Genie 3",
+    "description": "Have another question? Contact our support team for quick assistance.",
     "items": [
       {
-        "title": "What exactly is ShipAny and how does it work?",
-        "description": "ShipAny is a comprehensive NextJS boilerplate designed specifically for building AI SaaS startups. It provides ready-to-use templates, infrastructure setup, and deployment tools that help you launch your AI business in hours instead of days."
+        "title": "What exactly is Genie 3 and how does it work?",
+        "description": "Genie 3 is an advanced AI-powered platform that transforms static images into dynamic videos. Using cutting-edge machine learning algorithms, Genie 3 analyzes your images for depth, objects, and optimal motion patterns to create professional-quality animated videos."
       },
       {
-        "title": "Do I need advanced technical skills to use ShipAny?",
-        "description": "While basic programming knowledge is helpful, ShipAny is designed to be developer-friendly. Our templates and documentation make it easy to get started, even if you're not an expert in AI or cloud infrastructure."
+        "title": "Do I need technical skills to use Genie 3?",
+        "description": "Not at all! Genie 3 is designed for everyone - from social media creators to professional marketers. Simply upload your image, choose an animation style, and let Genie 3's AI do the rest. No video editing experience required."
       },
       {
-        "title": "What types of AI SaaS can I build with ShipAny?",
-        "description": "ShipAny supports a wide range of AI applications, from content generation to data analysis tools. Our templates cover popular use cases like AI chatbots, content generators, image processing apps, and more."
+        "title": "What types of images work best with Genie 3?",
+        "description": "Genie 3 works with all image types, but performs exceptionally well with landscape photos, portraits, architecture, and product shots. The AI automatically detects depth and subjects to create the most compelling motion effects."
       },
       {
-        "title": "How long does it typically take to launch with ShipAny?",
-        "description": "With ShipAny, you can have a working prototype in hours and a production-ready application in hours. Our one-click deployment and pre-configured infrastructure significantly reduce the traditional months-long development cycle."
+        "title": "How long does Genie 3 take to process videos?",
+        "description": "Genie 3's powerful cloud infrastructure typically processes videos in 15-30 seconds for HD quality and 1-2 minutes for 4K resolution. Processing time may vary based on image complexity and selected animation style."
       },
       {
-        "title": "What's included in the ShipAny infrastructure?",
-        "description": "ShipAny provides a complete infrastructure stack including authentication, database setup, API integration, payment processing, and scalable cloud deployment. Everything is pre-configured following industry best practices."
+        "title": "What video formats and resolutions does Genie 3 support?",
+        "description": "Genie 3 exports videos in MP4 format with options for HD (1080p) and 4K (2160p) resolution. Videos are optimized for social media platforms, presentations, and professional broadcasts."
       },
       {
-        "title": "Can I customize the templates to match my brand?",
-        "description": "Absolutely! All ShipAny templates are fully customizable. You can modify the design, features, and functionality to match your brand identity and specific business requirements while maintaining the robust underlying infrastructure."
+        "title": "Can I customize the animation effects in Genie 3?",
+        "description": "Yes! Genie 3 offers multiple animation styles including parallax, zoom, pan, rotate, and custom motion paths. You can adjust speed, direction, and intensity to match your creative vision perfectly."
+      },
+      {
+        "title": "How much does Genie 3 cost, and is there a free trial?",
+        "description": "Genie 3 offers flexible pricing plans: Basic (monthly $19.99), Pro (monthly $39.99), and Enterprise (custom pricing). All new users get a 7-day free trial of Genie 3 Pro to test all premium features before subscribing."
+      },
+      {
+        "title": "Which devices and browsers are compatible with Genie 3?",
+        "description": "Genie 3 works seamlessly on Windows 10+, macOS 11+, iOS 14+, and Android 10+ devices. It supports Chrome, Firefox, Safari, and Edge browsers for web access, with dedicated mobile apps for iOS and Android."
+      },
+      {
+        "title": "Who owns the copyright of videos created with Genie 3?",
+        "description": "You retain full copyright ownership of all videos generated using Genie 3. Genie 3 only uses your images to process the requested videos and does not claim any rights to your content."
+      },
+      {
+        "title": "Can I use Genie 3 to animate multiple images in a single video?",
+        "description": "Absolutely! Genie 3 allows you to upload up to 10 images per project, with smooth transition effects between them. You can arrange the sequence, set durations, and apply consistent animation styles across all images."
       }
     ]
   },
   "cta": {
     "name": "cta",
-    "title": "Ship your first AI SaaS Startup",
-    "description": "Start from here, ship with ShipAny.",
+    "title": "Start Creating Amazing Videos with Genie 3",
+    "description": "Transform your images into cinematic videos today.",
     "buttons": [
       {
-        "title": "Get ShipAny",
-        "url": "https://shipany.ai",
-        "target": "_blank",
+        "title": "Try Genie 3 Now",
+        "url": "/Image-to-Video",
+        "target": "_self",
         "icon": "GoArrowUpRight"
-      },
-      {
-        "title": "Read Document",
-        "url": "https://docs.shipany.ai",
-        "target": "_blank",
-        "variant": "outline"
       }
     ]
   },
   "footer": {
     "name": "footer",
     "brand": {
-      "title": "ShipAny",
-      "description": "ShipAny is a NextJS boilerplate for building AI SaaS startups. Ship Fast with a variety of templates and components.",
+      "title": "Genie 3",
+      "description": "Genie 3 is the most advanced AI-powered image-to-video generator. Create professional videos from your photos in seconds.",
       "logo": {
         "src": "/logo.png",
-        "alt": "ShipAny"
+        "alt": "Genie 3 AI Video Generator"
       },
       "url": "/"
     },
-    "copyright": "© 2025 • ShipAny All rights reserved.",
+    "copyright": "© 2025 • Genie 3 AI. All rights reserved.",
     "nav": {
       "items": [
         {
-          "title": "About",
+          "title": "Product",
           "children": [
+            {
+              "title": "AI Image to Video",
+              "url": "/#hero",
+              "target": "_self"
+            },
             {
               "title": "Features",
               "url": "/#feature",
               "target": "_self"
             },
             {
-              "title": "Showcases",
-              "url": "/#showcase",
-              "target": "_self"
-            },
-            {
-              "title": "Pricing",
-              "url": "/#pricing",
+              "title": "How It Works",
+              "url": "/#introduce",
               "target": "_self"
             }
           ]
         },
         {
-          "title": "Resources",
+          "title": "Support",
           "children": [
             {
-              "title": "Documents",
-              "url": "https://docs.shipany.ai",
-              "target": "_blank"
-            },
-            {
-              "title": "Components",
-              "url": "https://shipany.ai/components",
-              "target": "_blank"
-            },
-            {
-              "title": "Templates",
-              "url": "https://shipany.ai/templates",
-              "target": "_blank"
-            }
-          ]
-        },
-        {
-          "title": "Friends",
-          "children": [
-            {
-              "title": "ThinkAny",
-              "url": "https://thinkany.ai",
-              "target": "_blank"
-            },
-            {
-              "title": "HeyBeauty",
-              "url": "https://heybeauty.ai",
-              "target": "_blank"
-            },
-            {
-              "title": "Pagen",
-              "url": "https://pagen.so",
-              "target": "_blank"
+              "title": "FAQ",
+              "url": "/#faq",
+              "target": "_self"
             }
           ]
         }
@@ -464,13 +316,13 @@
         {
           "title": "X",
           "icon": "RiTwitterXFill",
-          "url": "https://x.com/shipanyai",
+          "url": "https://x.com/freegenie3",
           "target": "_blank"
         },
         {
           "title": "Github",
           "icon": "RiGithubFill",
-          "url": "https://github.com/shipanyai",
+          "url": "https://github.com/freegenie3",
           "target": "_blank"
         },
         {
@@ -482,7 +334,7 @@
         {
           "title": "Email",
           "icon": "RiMailLine",
-          "url": "mailto:support@shipany.ai",
+          "url": "mailto:rockyandtom@gmail.com",
           "target": "_self"
         }
       ]

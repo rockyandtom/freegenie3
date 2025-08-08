@@ -8,7 +8,7 @@ const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
 
-const withNextIntl = createNextIntlPlugin();
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -24,16 +24,49 @@ const nextConfig = {
     ],
   },
   async redirects() {
-    return [];
+    return [
+      // Redirect www to non-www
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.freegenie3.com',
+          },
+        ],
+        destination: 'https://freegenie3.com/:path*',
+        permanent: true,
+      },
+    ];
   },
-};
-
-// Make sure experimental mdx flag is enabled
-const configWithMDX = {
-  ...nextConfig,
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
+          },
+        ],
+      },
+    ];
+  },
   experimental: {
     mdxRs: true,
   },
 };
 
-export default withBundleAnalyzer(withNextIntl(withMDX(configWithMDX)));
+export default withBundleAnalyzer(withNextIntl(withMDX(nextConfig)));

@@ -1,4 +1,8 @@
 User-agent: *
+Allow: /
 Disallow: /*?*q=
 Disallow: /privacy-policy
 Disallow: /terms-of-service
+Disallow: /api/
+
+Sitemap: https://freegenie3.com/sitemap.xml
