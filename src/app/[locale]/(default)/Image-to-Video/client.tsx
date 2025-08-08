@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import Icon from "@/components/icon";
 import { cn } from "@/lib/utils";
+import { trackVideoGeneration, trackImageUpload, trackPromptUsage } from "@/lib/gtag";
 
 interface UploadedImage {
   file: File;
@@ -55,6 +56,9 @@ export default function ImageToVideoClient() {
 
   const handleImageUpload = (file: File, setImage: (image: UploadedImage) => void) => {
     if (file && file.type.startsWith('image/')) {
+      // 跟踪图片上传事件
+      trackImageUpload(file.size, file.type);
+      
       const reader = new FileReader();
       reader.onload = (e) => {
         setImage({
@@ -86,6 +90,9 @@ export default function ImageToVideoClient() {
       alert("Please upload at least the first frame image and enter a prompt");
       return;
     }
+
+    // 跟踪提示词使用
+    trackPromptUsage(prompt.length, !!lastFrame);
 
     setIsGenerating(true);
     setGeneratedVideo(null);
@@ -134,9 +141,19 @@ export default function ImageToVideoClient() {
     } catch (error) {
       console.error('Video generation error:', error);
       const errorMessage = error instanceof Error ? error.message : "Failed to generate video, please try again";
+      
+      // 跟踪视频生成启动失败事件
+      trackVideoGeneration(
+        lastFrame ? 'firstLast' : 'single',
+        false,
+        0 // 启动失败，时长为0
+      );
+      
       alert(errorMessage);
       setIsGenerating(false);
       setTaskId(null);
+      setProgress(0);
+      setEstimatedTime("");
     }
   };
 
@@ -164,6 +181,17 @@ export default function ImageToVideoClient() {
         if (result.success) {
           if (result.data.status === 'completed' && result.data.videoUrl) {
             console.log('Task completed, video URL:', result.data.videoUrl);
+            
+            // 计算生成时长
+            const generationDuration = (attempts * 5) / 60; // 分钟
+            
+            // 跟踪视频生成成功事件
+            trackVideoGeneration(
+              lastFrame ? 'firstLast' : 'single',
+              true,
+              Math.round(generationDuration * 60) // 转换为秒
+            );
+            
             setGeneratedVideo(result.data.videoUrl);
             setIsGenerating(false);
             
@@ -230,6 +258,13 @@ export default function ImageToVideoClient() {
           setTimeout(checkStatus, 10000);
           return;
         }
+        
+        // 跟踪视频生成失败事件
+        trackVideoGeneration(
+          lastFrame ? 'firstLast' : 'single',
+          false,
+          (attempts * 5) // 失败时的时长（秒）
+        );
         
         setLastError(errorMessage);
         alert(errorMessage);

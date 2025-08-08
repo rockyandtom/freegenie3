@@ -2,24 +2,21 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
-import { generateCanonicalUrl, isCanonicalDomain, shouldRedirect } from "@/lib/canonical";
 
 export default function CanonicalURL() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // 检查当前域名是否需要设置 canonical
+    // 检查当前域名
     const currentHostname = window.location.hostname;
     
     // 如果已经是 canonical 域名，不需要额外处理
-    if (isCanonicalDomain(currentHostname)) {
+    if (currentHostname === 'freegenie3.com') {
       return;
     }
 
-    // 如果是需要重定向的域名，设置 canonical 标签
-    if (!shouldRedirect(currentHostname)) {
-      return;
-    }
+    // 构建 canonical URL
+    const canonicalUrl = `https://freegenie3.com${pathname}`;
 
     // 移除现有的 canonical 标签
     const existingCanonical = document.querySelector('link[rel="canonical"]');
@@ -27,17 +24,10 @@ export default function CanonicalURL() {
       existingCanonical.remove();
     }
 
-    // 解析语言和路径
-    const pathSegments = pathname.split('/').filter(Boolean);
-    const locale = pathSegments[0] === 'en' ? 'en' : 'en'; // 目前只支持英文
-    const path = pathSegments.length > 0 && pathSegments[0] !== 'en' 
-      ? pathname 
-      : pathSegments.slice(1).join('/');
-
     // 创建新的 canonical 标签
     const canonical = document.createElement('link');
     canonical.rel = 'canonical';
-    canonical.href = generateCanonicalUrl(path, locale);
+    canonical.href = canonicalUrl;
     
     // 添加到 head
     document.head.appendChild(canonical);

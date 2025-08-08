@@ -26,7 +26,7 @@ export async function generateMetadata({
   const messages = await getMessages();
   const t = await getTranslations();
 
-  // 构建 canonical URL
+  // 构建 canonical URL - 直接使用域名，不依赖环境变量
   const canonicalUrl = params.locale === 'en' 
     ? 'https://freegenie3.com'
     : `https://freegenie3.com/${params.locale}`;
@@ -34,16 +34,14 @@ export async function generateMetadata({
   return {
     title: {
       template: `%s - Genie 3`,
-      default: t("metadata.title") || "Genie 3 - AI Image to Video Generator",
+      default: "Genie 3 - AI Image to Video Generator",
     },
-    description: t("metadata.description") || "Transform your static images into dynamic videos with Genie 3's powerful AI technology.",
-    keywords: t("metadata.keywords") || "genie 3, image to video, AI video generation, photo animation",
+    description: "Transform your static images into dynamic videos with Genie 3's powerful AI technology.",
+    keywords: "genie 3, image to video, AI video generation, photo animation",
     alternates: {
       canonical: canonicalUrl,
     },
-    other: {
-      'canonical': canonicalUrl,
-    },
+    metadataBase: new URL('https://freegenie3.com'),
   };
 }
 
