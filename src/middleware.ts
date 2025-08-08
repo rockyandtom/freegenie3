@@ -11,6 +11,8 @@ export default function middleware(request: NextRequest) {
   // 检查是否需要重定向到 canonical 域名
   if (
     hostname === 'freegenie3-bxsv-rockyandtoms-projects.vercel.app' ||
+    hostname === 'freegenie3-bxsv-git-main-rockyandtoms-projects.vercel.app' ||
+    hostname === 'freegenie3-bxsv-hqupl82mb-rockyandtoms-projects.vercel.app' ||
     hostname.endsWith('.vercel.app') ||
     hostname === 'www.freegenie3.com'
   ) {

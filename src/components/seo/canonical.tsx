@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
-import { generateCanonicalUrl, isCanonicalDomain } from "@/lib/canonical";
+import { generateCanonicalUrl, isCanonicalDomain, shouldRedirect } from "@/lib/canonical";
 
 export default function CanonicalURL() {
   const pathname = usePathname();
@@ -13,6 +13,11 @@ export default function CanonicalURL() {
     
     // 如果已经是 canonical 域名，不需要额外处理
     if (isCanonicalDomain(currentHostname)) {
+      return;
+    }
+
+    // 如果是需要重定向的域名，设置 canonical 标签
+    if (!shouldRedirect(currentHostname)) {
       return;
     }
 

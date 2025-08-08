@@ -38,6 +38,22 @@ export function isCanonicalDomain(hostname: string): boolean {
  */
 export const redirectDomains = [
   'freegenie3-bxsv-rockyandtoms-projects.vercel.app',
+  'freegenie3-bxsv-git-main-rockyandtoms-projects.vercel.app',
+  'freegenie3-bxsv-hqupl82mb-rockyandtoms-projects.vercel.app',
   /.*\.vercel\.app$/,
   'www.freegenie3.com'
 ];
+
+/**
+ * 检查域名是否需要重定向
+ * @param hostname - 当前主机名
+ * @returns 是否需要重定向
+ */
+export function shouldRedirect(hostname: string): boolean {
+  return redirectDomains.some(domain => {
+    if (typeof domain === 'string') {
+      return hostname === domain;
+    }
+    return domain.test(hostname);
+  });
+}

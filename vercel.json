@@ -21,6 +21,28 @@
       "has": [
         {
           "type": "host",
+          "value": "freegenie3-bxsv-git-main-rockyandtoms-projects\\.vercel\\.app"
+        }
+      ],
+      "destination": "https://freegenie3.com/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "freegenie3-bxsv-hqupl82mb-rockyandtoms-projects\\.vercel\\.app"
+        }
+      ],
+      "destination": "https://freegenie3.com/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
           "value": "(?!freegenie3\\.com).*\\.vercel\\.app"
         }
       ],

@@ -50,6 +50,16 @@ freegenie3.com -> cname.vercel-dns.com
 www.freegenie3.com -> freegenie3.com (CNAME)
 ```
 
+#### 3. Vercel 域名重定向
+已配置以下 Vercel 域名自动重定向到 freegenie3.com：
+
+```
+freegenie3-bxsv-rockyandtoms-projects.vercel.app
+freegenie3-bxsv-git-main-rockyandtoms-projects.vercel.app
+freegenie3-bxsv-hqupl82mb-rockyandtoms-projects.vercel.app
+所有其他 *.vercel.app 域名
+```
+
 #### 3. 环境变量设置
 在 Vercel Dashboard 的 Environment Variables 中设置：
 

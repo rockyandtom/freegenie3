@@ -25,13 +25,35 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // Redirect specific Vercel domain to canonical domain
+      // Redirect specific Vercel domains to canonical domain
       {
         source: '/:path*',
         has: [
           {
             type: 'host',
             value: 'freegenie3-bxsv-rockyandtoms-projects.vercel.app',
+          },
+        ],
+        destination: 'https://freegenie3.com/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'freegenie3-bxsv-git-main-rockyandtoms-projects.vercel.app',
+          },
+        ],
+        destination: 'https://freegenie3.com/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'freegenie3-bxsv-hqupl82mb-rockyandtoms-projects.vercel.app',
           },
         ],
         destination: 'https://freegenie3.com/:path*',
