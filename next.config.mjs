@@ -25,6 +25,30 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Redirect specific Vercel domain to canonical domain
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'freegenie3-bxsv-rockyandtoms-projects.vercel.app',
+          },
+        ],
+        destination: 'https://freegenie3.com/:path*',
+        permanent: true,
+      },
+      // Redirect any other Vercel domains to canonical domain
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: '(.*)\\.vercel\\.app',
+          },
+        ],
+        destination: 'https://freegenie3.com/:path*',
+        permanent: true,
+      },
       // Redirect www to non-www
       {
         source: '/:path*',

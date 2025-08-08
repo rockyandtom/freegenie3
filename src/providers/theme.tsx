@@ -8,6 +8,7 @@ import { isAuthEnabled } from "@/lib/auth";
 import SignModal from "@/components/sign/modal";
 import Analytics from "@/components/analytics";
 import Adsense from "./adsense";
+import SEO from "@/components/seo";
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const locale = useLocale();
@@ -27,6 +28,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     >
       {children}
 
+      <SEO />
       <Toaster position="top-center" richColors />
       <Analytics />
 
