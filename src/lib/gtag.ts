@@ -1,6 +1,6 @@
 // Google Analytics gtag 配置和工具函数
 
-export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || '';
+export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || 'G-CKC5HJ78SD';
 
 // 检查是否启用了 GA
 export const isGAEnabled = (): boolean => {
