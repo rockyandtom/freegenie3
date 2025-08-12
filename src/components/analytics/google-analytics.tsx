@@ -15,9 +15,9 @@ export default function GoogleAnalytics() {
     <>
       <NextGoogleAnalytics gaId={GA_TRACKING_ID} />
       
-      {/* 备用方案：直接使用 gtag 脚本 */}
+      {/* Google tag (gtag.js) */}
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+        src="https://www.googletagmanager.com/gtag/js?id=G-CKC5HJ78SD"
         strategy="afterInteractive"
       />
       <Script id="google-analytics-config" strategy="afterInteractive">
@@ -25,10 +25,7 @@ export default function GoogleAnalytics() {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${GA_TRACKING_ID}', {
-            page_title: document.title,
-            page_location: window.location.href,
-          });
+          gtag('config', 'G-CKC5HJ78SD');
         `}
       </Script>
     </>

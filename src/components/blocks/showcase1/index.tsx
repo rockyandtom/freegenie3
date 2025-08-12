@@ -38,7 +38,7 @@ export default function Showcase1({ section }: { section: SectionType }) {
   }, [carouselApi]);
 
   return (
-    <section id={section.name} className="py-16">
+    <section id={section.name} className="py-20">
       <div className="container">
         <div className="mb-8 flex items-end justify-between md:mb-14 lg:mb-16">
           <h2 className="mb-2 text-pretty text-3xl font-bold lg:text-4xl">

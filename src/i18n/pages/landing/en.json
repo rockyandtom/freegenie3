@@ -6,7 +6,7 @@
       "title": "freegenie3",
       "logo": {
         "src": "/logo.png",
-        "alt": "freegenie3 AI Video Generator"
+        "alt": "Genie 3 - Free AI Text-to-Video Generator"
       },
       "url": "/"
     },
@@ -18,7 +18,7 @@
           "icon": "RiHomeLine"
         },
         {
-          "title": "AI Image to Video",
+          "title": "AI Text to Video",
           "url": "/#hero",
           "icon": "RiVideoLine"
         },
@@ -45,9 +45,9 @@
     "show_locale": false
   },
   "hero": {
-    "title": "Genie 3 Image to Video Tool | Free AI Image-to-Video Online Generation Platform - FreeGenie3",
+    "title": "Genie 3 - Free AI Text-to-Video Generator",
     "highlight_text": "Genie 3",
-    "description": "Powered by Genie 3 core technology, FreeGenie3 offers you free and efficient image-to-video solutions. Upload an image and trigger the Genie 3 AI engine with one click to quickly generate smooth, high-definition videos—whether it's turning a landscape photo into a dynamic short clip, a product image into a promotional video, or a creative illustration into a story segment. The intelligent algorithm driven by Genie 3 accurately captures picture details, restores light and shadow layers, and brings static images to life with dynamic vitality.",
+    "description": "Unlock your creativity with Genie 3, a powerful and free AI text-to-video generator. Easily transform your text into stunning videos in minutes. No design skills required! Get your free Genie 3 experience today.",
 
     "buttons": [
       {
@@ -67,9 +67,9 @@
   },
   "introduce": {
     "name": "introduce",
-    "title": "What is Genie 3 AI",
+    "title": "Genie 3: The Future of AI Video Generation",
     "label": "About Genie 3",
-    "description": "Genie 3 is the revolutionary AI platform that transforms static images into dynamic, professional-quality videos using advanced machine learning algorithms.",
+    "description": "Genie 3 is a revolutionary AI text-to-video generator that leverages advanced machine learning to transform text into stunning videos. Our powerful Genie 3 engine meticulously analyzes your input and generates corresponding visuals, music, and voiceovers.",
     "image": {
       "src": "/imgs/features/1.mp4"
     },
@@ -93,9 +93,9 @@
   },
   "benefit": {
     "name": "benefit",
-    "title": "Why Choose Genie 3 for Video Creation",
+    "title": "Unlock Your Creativity with the Free Genie 3 Generator",
     "label": "Benefits",
-    "description": "Discover why Genie 3 is the preferred choice for creators, marketers, and businesses worldwide.",
+    "description": "The true power of Genie 3 lies in its accessibility. We firmly believe that everyone should have the tools to express their creativity, which is why we offer a free Genie 3 version with no hidden costs.",
     "items": [
       {
         "title": "Advanced AI Technology",
@@ -207,48 +207,48 @@
   "faq": {
     "name": "faq",
     "label": "FAQ",
-    "title": "Frequently Asked Questions About Genie 3",
-    "description": "Have another question? Contact our support team for quick assistance.",
+    "title": "Frequently Asked Questions",
+    "description": "This section addresses common questions about Genie 3. We've compiled a list of the most frequent inquiries to provide you with quick and helpful answers about Genie 3 and our free Genie 3 service.",
     "items": [
       {
-        "title": "What exactly is Genie 3 and how does it work?",
-        "description": "Genie 3 is an advanced AI-powered platform that transforms static images into dynamic videos. Using cutting-edge machine learning algorithms, Genie 3 analyzes your images for depth, objects, and optimal motion patterns to create professional-quality animated videos."
+        "title": "Is Genie 3 really free to use?",
+        "description": "Yes, our core Genie 3 service is completely free. We offer a free Genie 3 plan that allows you to create high-quality videos without any cost. There are optional premium features for advanced users, but the main text-to-video functionality of Genie 3 is free. Our free Genie 3 plan is designed to be robust."
       },
       {
-        "title": "Do I need technical skills to use Genie 3?",
-        "description": "Not at all! Genie 3 is designed for everyone - from social media creators to professional marketers. Simply upload your image, choose an animation style, and let Genie 3's AI do the rest. No video editing experience required."
+        "title": "What is the maximum length of a video I can create with Genie 3?",
+        "description": "The maximum video length with Genie 3 varies depending on your plan. The free Genie 3 plan has a generous limit, and our premium plans offer even longer video creation times. Check our pricing page for more details about Genie 3."
       },
       {
-        "title": "What types of images work best with Genie 3?",
-        "description": "Genie 3 works with all image types, but performs exceptionally well with landscape photos, portraits, architecture, and product shots. The AI automatically detects depth and subjects to create the most compelling motion effects."
+        "title": "Can I use the videos I create with Genie 3 for commercial purposes?",
+        "description": "Yes, videos created with Genie 3 can be used for commercial purposes. However, please review our terms of service for specific details on usage rights and attribution requirements. Our goal with Genie 3 is to be a versatile tool for everyone, including commercial users."
       },
       {
-        "title": "How long does Genie 3 take to process videos?",
-        "description": "Genie 3's powerful cloud infrastructure typically processes videos in 15-30 seconds for HD quality and 1-2 minutes for 4K resolution. Processing time may vary based on image complexity and selected animation style."
+        "title": "What kind of text prompts work best with Genie 3?",
+        "description": "Genie 3 works best with clear, descriptive text prompts. Providing detailed information about the scene, characters, and desired tone will help our AI generate the best possible video. Experimenting is key to mastering Genie 3 and our free Genie 3 service."
       },
       {
-        "title": "What video formats and resolutions does Genie 3 support?",
-        "description": "Genie 3 exports videos in MP4 format with options for HD (1080p) and 4K (2160p) resolution. Videos are optimized for social media platforms, presentations, and professional broadcasts."
+        "title": "Do I need any special software to use Genie 3?",
+        "description": "No, Genie 3 is a completely web-based platform. You can access it from any modern web browser on your computer or mobile device. There's no need to download or install any software to use Genie 3."
       },
       {
-        "title": "Can I customize the animation effects in Genie 3?",
-        "description": "Yes! Genie 3 offers multiple animation styles including parallax, zoom, pan, rotate, and custom motion paths. You can adjust speed, direction, and intensity to match your creative vision perfectly."
+        "title": "How long does it take to generate a video with Genie 3?",
+        "description": "Generation time depends on the length and complexity of your video. For short videos, it often takes just a few minutes. Our efficient Genie 3 engine is designed to minimize wait times, making Genie 3 incredibly fast."
       },
       {
-        "title": "How much does Genie 3 cost, and is there a free trial?",
-        "description": "Genie 3 offers flexible pricing plans: Basic (monthly $19.99), Pro (monthly $39.99), and Enterprise (custom pricing). All new users get a 7-day free trial of Genie 3 Pro to test all premium features before subscribing."
+        "title": "Can I edit the videos after they are generated?",
+        "description": "Yes, Genie 3 provides basic editing tools that allow you to make adjustments to your generated videos. You can trim clips, change music, and add text overlays to perfect your creation with Genie 3."
       },
       {
-        "title": "Which devices and browsers are compatible with Genie 3?",
-        "description": "Genie 3 works seamlessly on Windows 10+, macOS 11+, iOS 14+, and Android 10+ devices. It supports Chrome, Firefox, Safari, and Edge browsers for web access, with dedicated mobile apps for iOS and Android."
+        "title": "Is there a limit on the number of videos I can create?",
+        "description": "The free Genie 3 plan includes a certain number of credits for video creation. You can create more videos by upgrading to a premium plan. We aim to provide a fair and generous free Genie 3 experience for all."
       },
       {
-        "title": "Who owns the copyright of videos created with Genie 3?",
-        "description": "You retain full copyright ownership of all videos generated using Genie 3. Genie 3 only uses your images to process the requested videos and does not claim any rights to your content."
+        "title": "What languages does Genie 3 support?",
+        "description": "Currently, Genie 3 supports multiple languages for text input and voiceovers. We are constantly adding new languages to our platform to make Genie 3 accessible to a global audience. The versatility of Genie 3 is a key feature."
       },
       {
-        "title": "Can I use Genie 3 to animate multiple images in a single video?",
-        "description": "Absolutely! Genie 3 allows you to upload up to 10 images per project, with smooth transition effects between them. You can arrange the sequence, set durations, and apply consistent animation styles across all images."
+        "title": "How can I get help if I run into problems with Genie 3?",
+        "description": "We offer a comprehensive help center with tutorials and FAQs. If you still need assistance, our support team is available to help. We are dedicated to ensuring a smooth and productive experience with Genie 3."
       }
     ]
   },
@@ -269,10 +269,10 @@
     "name": "footer",
     "brand": {
       "title": "Genie 3",
-      "description": "Genie 3 is the most advanced AI-powered image-to-video generator. Create professional videos from your photos in seconds.",
+      "description": "Genie 3 is the most advanced AI-powered text-to-video generator. Create professional videos from your text prompts in seconds with our free AI technology.",
       "logo": {
         "src": "/logo.png",
-        "alt": "Genie 3 AI Video Generator"
+        "alt": "Genie 3 - Free AI Text-to-Video Generator"
       },
       "url": "/"
     },
@@ -283,7 +283,7 @@
           "title": "Product",
           "children": [
             {
-              "title": "AI Image to Video",
+              "title": "AI Text to Video",
               "url": "/#hero",
               "target": "_self"
             },

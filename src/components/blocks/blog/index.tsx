@@ -7,7 +7,7 @@ export default function Blog({ blog }: { blog: BlogType }) {
   }
 
   return (
-    <section className="w-full py-16">
+    <section className="w-full py-20">
       <div className="container flex flex-col items-center gap-8 lg:px-16">
         <div className="text-center">
           <p className="mb-6 text-xs font-medium uppercase tracking-wider">

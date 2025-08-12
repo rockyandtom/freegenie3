@@ -9,7 +9,7 @@ export default function Stats({ section }: { section: SectionType }) {
   }
 
   return (
-    <section id={section.name} className="py-12">
+    <section id={section.name} className="py-20">
       <div className="container flex flex-col items-center gap-4">
         {section.label && (
           <div className="flex items-center gap-1 text-sm font-semibold text-primary">

@@ -9,7 +9,7 @@ export default function CTA({ section }: { section: SectionType }) {
   }
 
   return (
-    <section id={section.name} className="py-16">
+    <section id={section.name} className="py-20">
       <div className="px-8">
         <div className='flex items-center justify-center rounded-2xl  bg-[url("/imgs/masks/circle.svg")] bg-cover bg-center px-8 py-12 text-center md:p-16'>
           <div className="mx-auto max-w-(--breakpoint-md)">

@@ -9,7 +9,7 @@ export default function Feature3({ section }: { section: SectionType }) {
   }
 
   return (
-    <section className="py-16">
+    <section className="py-20">
       <div className="container px-8">
         <div className="mb-16 max-w-xl px-8 lg:px-0">
           {section.label && (

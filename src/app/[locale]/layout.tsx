@@ -11,6 +11,7 @@ import { ThemeProvider } from "@/providers/theme";
 import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 import { locales } from "@/i18n/locale";
+import Analytics from "@/components/analytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -68,6 +69,7 @@ export default async function LocaleLayout({
             </AppContextProvider>
           </NextAuthSessionProvider>
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );
