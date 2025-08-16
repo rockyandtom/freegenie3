@@ -9,7 +9,8 @@ Transform your images into stunning videos with AI-powered technology. Create ci
 1. Clone the repository
 
 ```bash
-git clone https://github.com/shipanyai/shipany-template-one.git
+git clone https://github.com/rockyandtom/freegenie3.git
+cd freegenie3
 ```
 
 2. Install dependencies
@@ -42,9 +43,28 @@ cp .env.example .env.development
 
 ## Deploy
 
-- Deploy to Vercel
+### Automatic Deployment
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fshipanyai%2Fshipany-template-one&project-name=my-shipany-project&repository-name=my-shipany-project&redirect-url=https%3A%2F%2Fshipany.ai&demo-title=ShipAny&demo-description=Ship%20Any%20AI%20Startup%20in%20hours%2C%20not%20days&demo-url=https%3A%2F%2Fshipany.ai&demo-image=https%3A%2F%2Fpbs.twimg.com%2Fmedia%2FGgGSW3La8AAGJgU%3Fformat%3Djpg%26name%3Dlarge)
+This project is configured for automatic deployment to Vercel:
+
+- **Production URL**: https://freegenie3.com
+- **GitHub Repository**: https://github.com/rockyandtom/freegenie3
+
+### Deploy to Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Frockyandtom%2Ffreegenie3&project-name=freegenie3&repository-name=freegenie3&redirect-url=https%3A%2F%2Ffreegenie3.com&demo-title=Genie%203%20-%20AI%20Image%20to%20Video&demo-description=Transform%20your%20images%20into%20stunning%20videos%20with%20AI-powered%20technology&demo-url=https%3A%2F%2Ffreegenie3.com&demo-image=https%3A%2F%2Ffreegenie3.com%2Fpreview.png)
+
+### Manual Deployment
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy to production
+vercel --prod
+```
+
+For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md).
 
 - Deploy to Cloudflare
 
