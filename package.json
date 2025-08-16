@@ -15,7 +15,10 @@
     "db:migrate": "npx drizzle-kit migrate --config=src/db/config.ts",
     "db:studio": "npx drizzle-kit studio --config=src/db/config.ts",
     "db:push": "npx drizzle-kit push --config=src/db/config.ts",
-    "postinstall": "fumadocs-mdx"
+    "postinstall": "fumadocs-mdx",
+    "setup:vercel": "node scripts/setup-vercel.js",
+    "check:env": "node scripts/check-env.js",
+    "deploy": "vercel --prod"
   },
   "dependencies": {
     "@ai-sdk/deepseek": "^0.1.11",
