@@ -23,6 +23,11 @@
           "icon": "RiVideoLine"
         },
         {
+          "title": "AI EFFECTS",
+          "url": "/ai-effects",
+          "icon": "RiMagicLine"
+        },
+        {
           "title": "Features",
           "url": "/#feature",
           "icon": "RiSparkling2Line"
@@ -285,6 +290,11 @@
             {
               "title": "AI Text to Video",
               "url": "/#hero",
+              "target": "_self"
+            },
+            {
+              "title": "AI EFFECTS",
+              "url": "/ai-effects",
               "target": "_self"
             },
             {

@@ -23,6 +23,11 @@
           "icon": "RiVideoLine"
         },
         {
+          "title": "AI特效",
+          "url": "/ai-effects",
+          "icon": "RiMagicLine"
+        },
+        {
           "title": "功能特性",
           "url": "/#feature",
           "icon": "RiSparkling2Line"
