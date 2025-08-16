@@ -1,0 +1,5 @@
+[33m6068b80[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m feat: add ai-effects page and update navigation
+[33mc427756[m fix: Ensure Google Analytics works in production environment
+[33m0000ee7[m feat: Update SEO content and UI improvements
+[33mdf3a3a4[m  Fix canonical URL configuration and add Google Analytics tracking
+[33m55cbaee[m  Add additional Vercel domain redirects to canonical URL
