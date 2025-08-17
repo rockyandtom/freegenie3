@@ -15,32 +15,44 @@
         {
           "title": "Genie 3",
           "url": "/",
-          "icon": "RiHomeLine"
-        },
-        {
-          "title": "AI Text to Video",
-          "url": "/#hero",
-          "icon": "RiVideoLine"
+          "icon": "RiHomeLine",
+          "children": [
+            {
+              "title": "AI Text to Video",
+              "url": "/#hero",
+              "icon": "RiVideoLine"
+            },
+            {
+              "title": "Features",
+              "url": "/#feature",
+              "icon": "RiSparkling2Line"
+            },
+            {
+              "title": "How It Works",
+              "url": "/#introduce",
+              "icon": "RiQuestionLine"
+            },
+            {
+              "title": "FAQ",
+              "url": "/#faq",
+              "icon": "RiQuestionAnswerLine"
+            }
+          ]
         },
         {
           "title": "AI EFFECTS",
-          "url": "/ai-effects",
+          "url": "/new-page/ai-effects",
           "icon": "RiMagicLine"
         },
         {
-          "title": "Features",
-          "url": "/#feature",
-          "icon": "RiSparkling2Line"
+          "title": "IMAGE EDITOR",
+          "url": "/new-page/image-editor",
+          "icon": "RiImageEditLine"
         },
         {
-          "title": "How It Works",
-          "url": "/#introduce",
-          "icon": "RiQuestionLine"
-        },
-        {
-          "title": "FAQ",
-          "url": "/#faq",
-          "icon": "RiQuestionAnswerLine"
+          "title": "VIDEO EDITOR",
+          "url": "/new-page/vedio-editor",
+          "icon": "RiVideoLine"
         }
       ]
     },
@@ -53,7 +65,6 @@
     "title": "Genie 3 - Free AI Text-to-Video Generator",
     "highlight_text": "Genie 3",
     "description": "Unlock your creativity with Genie 3, a powerful and free AI text-to-video generator. Easily transform your text into stunning videos in minutes. No design skills required! Get your free Genie 3 experience today.",
-
     "buttons": [
       {
         "title": "Start Creating",
@@ -294,7 +305,7 @@
             },
             {
               "title": "AI EFFECTS",
-              "url": "/ai-effects",
+              "url": "/new-page/ai-effects",
               "target": "_self"
             },
             {

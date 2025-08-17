@@ -12,8 +12,8 @@ export async function generateMetadata({
 
   // 构建 canonical URL
   const canonicalUrl = locale === 'en' 
-    ? 'https://freegenie3.com/ai-effects'
-    : `https://freegenie3.com/${locale}/ai-effects`;
+    ? 'https://freegenie3.com/new-page/ai-effects'
+    : `https://freegenie3.com/${locale}/new-page/ai-effects`;
 
   return {
     title: "AI Kissing Video Generator Free | Create Realistic Kissing Videos - Genie 3",

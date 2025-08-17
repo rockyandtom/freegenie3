@@ -15,32 +15,44 @@
         {
           "title": "Genie 3",
           "url": "/",
-          "icon": "RiHomeLine"
-        },
-        {
-          "title": "AI图生视频",
-          "url": "/#hero",
-          "icon": "RiVideoLine"
+          "icon": "RiHomeLine",
+          "children": [
+            {
+              "title": "AI图生视频",
+              "url": "/#hero",
+              "icon": "RiVideoLine"
+            },
+            {
+              "title": "功能特性",
+              "url": "/#feature",
+              "icon": "RiSparkling2Line"
+            },
+            {
+              "title": "工作原理",
+              "url": "/#introduce",
+              "icon": "RiQuestionLine"
+            },
+            {
+              "title": "常见问题",
+              "url": "/#faq",
+              "icon": "RiQuestionAnswerLine"
+            }
+          ]
         },
         {
           "title": "AI特效",
-          "url": "/ai-effects",
+          "url": "/new-page/ai-effects",
           "icon": "RiMagicLine"
         },
         {
-          "title": "功能特性",
-          "url": "/#feature",
-          "icon": "RiSparkling2Line"
+          "title": "图片编辑器",
+          "url": "/new-page/image-editor",
+          "icon": "RiImageEditLine"
         },
         {
-          "title": "工作原理",
-          "url": "/#introduce",
-          "icon": "RiQuestionLine"
-        },
-        {
-          "title": "常见问题",
-          "url": "/#faq",
-          "icon": "RiQuestionAnswerLine"
+          "title": "视频编辑器",
+          "url": "/new-page/vedio-editor",
+          "icon": "RiVideoLine"
         }
       ]
     },
