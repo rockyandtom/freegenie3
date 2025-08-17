@@ -1,0 +1,16 @@
+[1mdiff --git a/src/app/[locale]/(default)/Image-to-Video/client.tsx b/src/app/[locale]/(default)/Image-to-Video/client.tsx[m
+[1mindex a43728f..7b7b508 100644[m
+[1m--- a/src/app/[locale]/(default)/Image-to-Video/client.tsx[m
+[1m+++ b/src/app/[locale]/(default)/Image-to-Video/client.tsx[m
+[36m@@ -128,6 +128,11 @@[m [mexport default function ImageToVideoClient() {[m
+     setLastError(null);[m
+     [m
+     try {[m
+[32m+[m[32m      // 确保 firstFrame 存在 (TypeScript 类型检查)[m
+[32m+[m[32m      if (!firstFrame) {[m
+[32m+[m[32m        throw new Error("First frame is required");[m
+[32m+[m[32m      }[m
+[32m+[m[41m      [m
+       // 上传图片并获取文件名[m
+       const imageData = await uploadImageToRunningHub(firstFrame.file);[m
+       let lastImageData = undefined;[m

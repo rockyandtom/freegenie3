@@ -128,8 +128,13 @@ export default function ImageToVideoClient() {
     setLastError(null);
     
     try {
+      // 确保 firstFrame 存在 (TypeScript 类型检查)
+      if (!firstFrame) {
+        throw new Error("First frame is required");
+      }
+      
       // 上传图片并获取文件名
-      const imageData = await uploadImageToRunningHub(firstFrame.file);
+      const imageData = await uploadImageToRunningHub(firstFrame!.file);
       let lastImageData = undefined;
       let secondImageData = undefined;
       
