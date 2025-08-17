@@ -304,6 +304,21 @@
               "target": "_self"
             },
             {
+              "title": "AI特效",
+              "url": "/new-page/ai-effects",
+              "target": "_self"
+            },
+            {
+              "title": "图片编辑器",
+              "url": "/new-page/image-editor",
+              "target": "_self"
+            },
+            {
+              "title": "视频编辑器",
+              "url": "/new-page/vedio-editor",
+              "target": "_self"
+            },
+            {
               "title": "功能特性",
               "url": "/#feature",
               "target": "_self"

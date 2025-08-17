@@ -309,6 +309,16 @@
               "target": "_self"
             },
             {
+              "title": "IMAGE EDITOR",
+              "url": "/new-page/image-editor",
+              "target": "_self"
+            },
+            {
+              "title": "VIDEO EDITOR",
+              "url": "/new-page/vedio-editor",
+              "target": "_self"
+            },
+            {
               "title": "Features",
               "url": "/#feature",
               "target": "_self"
