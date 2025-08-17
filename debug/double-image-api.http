@@ -1,0 +1,79 @@
+### RunningHub 双图片生成 API 测试
+# 这个文件包含了测试新添加的双图片 API 的 HTTP 请求示例
+
+@baseUrl = http://localhost:3000
+
+### 1. 测试双图片生成
+POST {{baseUrl}}/api/runninghub
+Content-Type: application/json
+
+{
+    "action": "generate",
+    "appType": "doubleImage",
+    "image": "13b1937e7047c9f5a938d0416a64b7c260902e2d5926b7ada3fbbe6d82649947.png",
+    "secondImage": "1974b99b6b1a9544b8622c6ce4059922e2aa22230013f9d198a3afb30ae70e92.png"
+}
+
+### 2. 查询任务状态（请将 taskId 替换为实际的任务 ID）
+POST {{baseUrl}}/api/runninghub
+Content-Type: application/json
+
+{
+    "action": "status",
+    "taskId": "替换为实际的任务ID"
+}
+
+### 3. 测试单图片生成（原有功能）
+POST {{baseUrl}}/api/runninghub
+Content-Type: application/json
+
+{
+    "action": "generate",
+    "appType": "singleImage",
+    "image": "13b1937e7047c9f5a938d0416a64b7c260902e2d5926b7ada3fbbe6d82649947.png",
+    "prompt": "一个美丽的自然风景视频"
+}
+
+### 4. 测试首尾帧生成（原有功能）
+POST {{baseUrl}}/api/runninghub
+Content-Type: application/json
+
+{
+    "action": "generate",
+    "appType": "firstLastFrame",
+    "image": "13b1937e7047c9f5a938d0416a64b7c260902e2d5926b7ada3fbbe6d82649947.png",
+    "lastImage": "1974b99b6b1a9544b8622c6ce4059922e2aa22230013f9d198a3afb30ae70e92.png",
+    "prompt": "从第一张图片过渡到最后一张图片的平滑动画"
+}
+
+### 5. 测试错误情况 - 缺少必要参数
+POST {{baseUrl}}/api/runninghub
+Content-Type: application/json
+
+{
+    "action": "generate",
+    "appType": "doubleImage",
+    "image": "13b1937e7047c9f5a938d0416a64b7c260902e2d5926b7ada3fbbe6d82649947.png"
+    // 缺少 secondImage
+}
+
+### 6. 自动检测双图片模式（不指定 appType）
+POST {{baseUrl}}/api/runninghub
+Content-Type: application/json
+
+{
+    "action": "generate",
+    "image": "13b1937e7047c9f5a938d0416a64b7c260902e2d5926b7ada3fbbe6d82649947.png",
+    "secondImage": "1974b99b6b1a9544b8622c6ce4059922e2aa22230013f9d198a3afb30ae70e92.png"
+    // 自动检测为双图片模式（没有 prompt 和 lastImage）
+}
+
+### 7. 使用 curl 命令测试双图片生成
+# curl --location --request POST 'http://localhost:3000/api/runninghub' \
+# --header 'Content-Type: application/json' \
+# --data-raw '{
+#     "action": "generate",
+#     "appType": "doubleImage",
+#     "image": "13b1937e7047c9f5a938d0416a64b7c260902e2d5926b7ada3fbbe6d82649947.png",
+#     "secondImage": "1974b99b6b1a9544b8622c6ce4059922e2aa22230013f9d198a3afb30ae70e92.png"
+# }'

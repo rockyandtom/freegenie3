@@ -36,11 +36,28 @@ export default function ImageToVideoClient() {
   const firstFrameRef = useRef<HTMLInputElement>(null);
   const lastFrameRef = useRef<HTMLInputElement>(null);
 
+  // 检测当前模式
+  const getVideoMode = () => {
+    if (firstFrame && lastFrame && !prompt) {
+      return 'doubleImage';
+    } else if (firstFrame && lastFrame && prompt) {
+      return 'firstLastFrame';
+    } else if (firstFrame && prompt) {
+      return 'singleImage';
+    }
+    return null;
+  };
+
+  const canGenerate = () => {
+    const mode = getVideoMode();
+    return mode !== null && !isGenerating;
+  };
+
   // 键盘快捷键支持
   React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       // Ctrl/Cmd + Enter 生成视频
-      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter' && !isGenerating && firstFrame && prompt) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter' && canGenerate()) {
         e.preventDefault();
         generateVideo();
       }
@@ -52,7 +69,7 @@ export default function ImageToVideoClient() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isGenerating, firstFrame, prompt, lastError]);
+  }, [isGenerating, firstFrame, lastFrame, prompt, lastError]);
 
   const handleImageUpload = (file: File, setImage: (image: UploadedImage) => void) => {
     if (file && file.type.startsWith('image/')) {
@@ -86,13 +103,21 @@ export default function ImageToVideoClient() {
   };
 
   const generateVideo = async () => {
-    if (!firstFrame || !prompt) {
-      alert("Please upload at least the first frame image and enter a prompt");
+    const mode = getVideoMode();
+    
+    if (!mode) {
+      if (!firstFrame) {
+        alert("Please upload at least the first frame image");
+      } else if (mode !== 'doubleImage' && !prompt) {
+        alert("Please enter a video description prompt");
+      }
       return;
     }
 
     // 跟踪提示词使用
-    trackPromptUsage(prompt.length, !!lastFrame);
+    if (prompt) {
+      trackPromptUsage(prompt.length, !!lastFrame);
+    }
 
     setIsGenerating(true);
     setGeneratedVideo(null);
@@ -106,11 +131,33 @@ export default function ImageToVideoClient() {
       // 上传图片并获取文件名
       const imageData = await uploadImageToRunningHub(firstFrame.file);
       let lastImageData = undefined;
+      let secondImageData = undefined;
       
-      // 如果有最后一帧图片，也上传它
-      if (lastFrame) {
+      // 根据模式上传对应的图片
+      if (mode === 'doubleImage' && lastFrame) {
+        secondImageData = await uploadImageToRunningHub(lastFrame.file);
+      } else if ((mode === 'firstLastFrame' || mode === 'singleImage') && lastFrame) {
         lastImageData = await uploadImageToRunningHub(lastFrame.file);
       }
+      
+      // 准备API请求数据
+      const requestData: any = {
+        action: 'generate',
+        image: imageData,
+        appType: mode
+      };
+
+      // 根据模式添加不同的参数
+      if (mode === 'doubleImage') {
+        requestData.secondImage = secondImageData;
+      } else if (mode === 'firstLastFrame') {
+        requestData.lastImage = lastImageData;
+        requestData.prompt = prompt;
+      } else if (mode === 'singleImage') {
+        requestData.prompt = prompt;
+      }
+      
+      console.log('Sending request with mode:', mode, 'data:', requestData);
       
       // 调用RunningHub API开始生成视频
       const response = await fetch('/api/runninghub', {
@@ -118,12 +165,7 @@ export default function ImageToVideoClient() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          action: 'generate',
-          image: imageData,
-          lastImage: lastImageData,
-          prompt: prompt
-        })
+        body: JSON.stringify(requestData)
       });
 
       const result = await response.json();
@@ -421,17 +463,38 @@ export default function ImageToVideoClient() {
               </CardTitle>
               <CardDescription>
                 Upload images and add prompts, AI will generate amazing video content for you.
-                {lastFrame ? (
-                  <span className="block mt-2 text-sm text-green-600 dark:text-green-400">
-                    <Icon name="RiCheckLine" className="w-4 h-4 inline mr-1" />
-                    First & Last Frame Mode: More precise control over video transitions
-                  </span>
-                ) : (
-                  <span className="block mt-2 text-sm text-blue-600 dark:text-blue-400">
-                    <Icon name="RiInformationLine" className="w-4 h-4 inline mr-1" />
-                    Single Image Mode: Upload a last frame for better control
-                  </span>
-                )}
+                {(() => {
+                  const mode = getVideoMode();
+                  if (mode === 'doubleImage') {
+                    return (
+                      <span className="block mt-2 text-sm text-purple-600 dark:text-purple-400">
+                        <Icon name="RiCheckLine" className="w-4 h-4 inline mr-1" />
+                        Double Image Mode: Generate video from two images (no prompt needed)
+                      </span>
+                    );
+                  } else if (mode === 'firstLastFrame') {
+                    return (
+                      <span className="block mt-2 text-sm text-green-600 dark:text-green-400">
+                        <Icon name="RiCheckLine" className="w-4 h-4 inline mr-1" />
+                        First & Last Frame Mode: More precise control over video transitions
+                      </span>
+                    );
+                  } else if (mode === 'singleImage') {
+                    return (
+                      <span className="block mt-2 text-sm text-blue-600 dark:text-blue-400">
+                        <Icon name="RiInformationLine" className="w-4 h-4 inline mr-1" />
+                        Single Image Mode: AI generates natural motion from one image
+                      </span>
+                    );
+                  } else {
+                    return (
+                      <span className="block mt-2 text-sm text-gray-600 dark:text-gray-400">
+                        <Icon name="RiInformationLine" className="w-4 h-4 inline mr-1" />
+                        Upload images to begin - choose your generation mode
+                      </span>
+                    );
+                  }
+                })()}
               </CardDescription>
             </CardHeader>
             
@@ -455,7 +518,7 @@ export default function ImageToVideoClient() {
               </div>
 
               {/* Mode Benefits */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                 <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
                   <div className="flex items-center gap-2 text-blue-700 dark:text-blue-300 mb-2">
                     <Icon name="RiImageLine" className="w-4 h-4" />
@@ -475,40 +538,76 @@ export default function ImageToVideoClient() {
                     Precise control over start and end states for smoother, more predictable transitions
                   </p>
                 </div>
+
+                <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-200 dark:border-purple-800">
+                  <div className="flex items-center gap-2 text-purple-700 dark:text-purple-300 mb-2">
+                    <Icon name="RiGalleryLine" className="w-4 h-4" />
+                    <span className="font-medium">Double Image Mode</span>
+                  </div>
+                  <p className="text-purple-600 dark:text-purple-400 text-xs">
+                    AI creates videos using two images without requiring text prompts
+                  </p>
+                </div>
               </div>
 
               {/* Prompt Input */}
               <div className="space-y-3">
                 <h3 className="text-sm font-medium text-foreground flex items-center gap-2">
                   Video Description Prompt
-                  <span className="text-red-500">*</span>
+                  {getVideoMode() === 'doubleImage' ? (
+                    <span className="text-gray-500 text-xs">(Optional for Double Image Mode)</span>
+                  ) : (
+                    <span className="text-red-500">*</span>
+                  )}
                 </h3>
                 <Textarea
-                  placeholder={lastFrame 
-                    ? "Describe the transition between frames, e.g.: 一束光照下来，镜头围绕角色旋转，角色丝滑变身"
-                    : "Describe the motion you want, e.g.: character moves from left to right, leaves sway in the wind, camera slowly pushes in..."
-                  }
+                  placeholder={(() => {
+                    const mode = getVideoMode();
+                    if (mode === 'doubleImage') {
+                      return "Optional: Describe additional effects you want, e.g.: camera movements, lighting changes, etc.";
+                    } else if (mode === 'firstLastFrame') {
+                      return "Describe the transition between frames, e.g.: 一束光照下来，镜头围绕角色旋转，角色丝滑变身";
+                    } else {
+                      return "Describe the motion you want, e.g.: character moves from left to right, leaves sway in the wind, camera slowly pushes in...";
+                    }
+                  })()}
                   value={prompt}
                   onChange={(e) => setPrompt(e.target.value)}
-                  className="min-h-[120px] resize-none"
+                  className={`min-h-[120px] resize-none ${getVideoMode() === 'doubleImage' ? 'opacity-75' : ''}`}
                 />
                 
                 {/* Quick Prompt Suggestions */}
                 <div className="space-y-2">
                   <p className="text-xs font-medium text-muted-foreground">Quick Suggestions:</p>
                   <div className="flex flex-wrap gap-2">
-                    {(lastFrame ? [
-                      "镜头缓慢推进，光影变化",
-                      "角色从静止到动作",
-                      "背景从模糊到清晰",
-                      "色彩渐变过渡"
-                    ] : [
-                      "Camera slowly zooms in",
-                      "Gentle wind effect",
-                      "Soft lighting changes",
-                      "Character subtle movement",
-                      "Background blur effect"
-                    ]).map((suggestion) => (
+                    {(() => {
+                      const mode = getVideoMode();
+                      if (mode === 'doubleImage') {
+                        return [
+                          "Camera slowly zooms in",
+                          "Gentle wind effect", 
+                          "Soft lighting changes",
+                          "Character subtle movement",
+                          "Background blur effect",
+                          "Smooth transition"
+                        ];
+                      } else if (mode === 'firstLastFrame') {
+                        return [
+                          "镜头缓慢推进，光影变化",
+                          "角色从静止到动作", 
+                          "背景从模糊到清晰",
+                          "色彩渐变过渡"
+                        ];
+                      } else {
+                        return [
+                          "Camera slowly zooms in",
+                          "Gentle wind effect",
+                          "Soft lighting changes", 
+                          "Character subtle movement",
+                          "Background blur effect"
+                        ];
+                      }
+                    })().map((suggestion) => (
                       <Button
                         key={suggestion}
                         variant="outline"
@@ -546,7 +645,7 @@ export default function ImageToVideoClient() {
               <div className="flex justify-center pt-4">
                 <Button
                   onClick={generateVideo}
-                  disabled={!firstFrame || !prompt || isGenerating}
+                  disabled={!canGenerate()}
                   className="px-8 py-3 text-base font-medium"
                   size="lg"
                 >
@@ -568,19 +667,31 @@ export default function ImageToVideoClient() {
               </div>
 
               {/* Generation Mode Info */}
-              {(firstFrame || lastFrame) && (
+              {getVideoMode() && (
                 <div className="mt-4 p-3 bg-gray-50 dark:bg-gray-900/20 rounded-lg border border-gray-200 dark:border-gray-800">
                   <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
-                    <Icon name={lastFrame ? "RiVideoLine" : "RiImageLine"} className="w-4 h-4" />
+                    <Icon name={(() => {
+                      const mode = getVideoMode();
+                      if (mode === 'doubleImage') return "RiGalleryLine";
+                      if (mode === 'firstLastFrame') return "RiVideoLine";
+                      return "RiImageLine";
+                    })()} className="w-4 h-4" />
                     <span className="text-sm font-medium">
-                      Mode: {lastFrame ? "First & Last Frame" : "Single Image"}
+                      Mode: {(() => {
+                        const mode = getVideoMode();
+                        if (mode === 'doubleImage') return "Double Image";
+                        if (mode === 'firstLastFrame') return "First & Last Frame";
+                        return "Single Image";
+                      })()}
                     </span>
                   </div>
                   <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
-                    {lastFrame 
-                      ? "Using advanced first-last frame mode for precise video control"
-                      : "Using single image mode - add a last frame for better control"
-                    }
+                    {(() => {
+                      const mode = getVideoMode();
+                      if (mode === 'doubleImage') return "AI will generate video using your two images without requiring text prompts";
+                      if (mode === 'firstLastFrame') return "Using advanced first-last frame mode for precise video control";
+                      return "Using single image mode - add a last frame for better control";
+                    })()}
                   </p>
                 </div>
               )}

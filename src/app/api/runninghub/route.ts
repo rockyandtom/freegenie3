@@ -22,6 +22,15 @@ const RUNNINGHUB_CONFIG = {
             lastImage: "125"
         }
     },
+    // 新的双图片应用配置
+    doubleImageApp: {
+        webappId: '1955909545925246978',
+        apiKey: 'fb88fac46b0349c1986c9cbb4f14d44e',
+        nodes: {
+            firstImage: "186",
+            secondImage: "187"
+        }
+    },
     headers: {
         'Host': 'www.runninghub.cn',
         'Content-Type': 'application/json',
@@ -33,13 +42,13 @@ export async function POST(request: NextRequest) {
         const body = await request.json()
         console.log('RunningHub API received:', body)
 
-        const { image, lastImage, prompt, action } = body
+        const { image, lastImage, prompt, action, secondImage, appType } = body
 
         // 处理不同的操作类型
         if (action === 'status') {
             return await handleStatusCheck(body.taskId)
         } else if (action === 'generate') {
-            return await handleGenerate(image, lastImage, prompt)
+            return await handleGenerate(image, lastImage, prompt, secondImage, appType)
         } else {
             return NextResponse.json(
                 { error: 'Invalid action. Use "generate" or "status"' },
@@ -59,31 +68,81 @@ export async function POST(request: NextRequest) {
 }
 
 // 处理视频生成请求
-async function handleGenerate(image: string, lastImage: string | undefined, prompt: string) {
-    if (!image || !prompt) {
-        return NextResponse.json(
-            { error: 'Image and prompt are required' },
-            { status: 400 }
-        )
-    }
+async function handleGenerate(
+    image: string, 
+    lastImage: string | undefined, 
+    prompt: string, 
+    secondImage?: string, 
+    appType?: string
+) {
+    // 根据传入的 appType 或者参数判断使用哪个应用
+    let selectedAppType: string;
+    let appConfig: any;
 
-    // 根据是否有lastImage选择使用哪个应用
-    const useFirstLastFrameApp = !!lastImage;
-    const appConfig = useFirstLastFrameApp
-        ? RUNNINGHUB_CONFIG.firstLastFrameApp
-        : RUNNINGHUB_CONFIG.singleImageApp;
+    if (appType === 'doubleImage' || (image && secondImage && !prompt && !lastImage)) {
+        // 使用双图片应用
+        selectedAppType = 'doubleImage';
+        appConfig = RUNNINGHUB_CONFIG.doubleImageApp;
+        
+        if (!image || !secondImage) {
+            return NextResponse.json(
+                { error: 'Both images are required for double image app' },
+                { status: 400 }
+            )
+        }
+    } else if (lastImage) {
+        // 使用首尾帧应用
+        selectedAppType = 'firstLastFrame';
+        appConfig = RUNNINGHUB_CONFIG.firstLastFrameApp;
+        
+        if (!image || !prompt) {
+            return NextResponse.json(
+                { error: 'Image and prompt are required for first-last frame app' },
+                { status: 400 }
+            )
+        }
+    } else {
+        // 使用单图片应用
+        selectedAppType = 'singleImage';
+        appConfig = RUNNINGHUB_CONFIG.singleImageApp;
+        
+        if (!image || !prompt) {
+            return NextResponse.json(
+                { error: 'Image and prompt are required for single image app' },
+                { status: 400 }
+            )
+        }
+    }
 
     console.log('开始生成视频:', {
         image,
         lastImage,
+        secondImage,
         prompt,
-        appType: useFirstLastFrameApp ? 'firstLastFrame' : 'singleImage'
+        appType: selectedAppType
     })
 
     try {
         let nodeInfoList;
 
-        if (useFirstLastFrameApp) {
+        if (selectedAppType === 'doubleImage') {
+            // 使用双图片应用
+            const doubleConfig = RUNNINGHUB_CONFIG.doubleImageApp;
+            nodeInfoList = [
+                {
+                    nodeId: doubleConfig.nodes.firstImage,
+                    fieldName: "image",
+                    fieldValue: image,
+                    description: "image"
+                },
+                {
+                    nodeId: doubleConfig.nodes.secondImage,
+                    fieldName: "image",
+                    fieldValue: secondImage,
+                    description: "image"
+                }
+            ];
+        } else if (selectedAppType === 'firstLastFrame') {
             // 使用首尾帧应用
             const firstLastConfig = RUNNINGHUB_CONFIG.firstLastFrameApp;
             nodeInfoList = [
@@ -161,7 +220,7 @@ async function handleGenerate(image: string, lastImage: string | undefined, prom
                     taskId: data.data.taskId,
                     status: 'started',
                     message: '视频生成任务已启动',
-                    appType: useFirstLastFrameApp ? 'firstLastFrame' : 'singleImage'
+                    appType: selectedAppType
                 }
             })
         } else {
